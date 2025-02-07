@@ -1,0 +1,13 @@
+name = "StochasticDominance"
+uuid = "8041b248-d9a2-49d2-9c7f-91ddf745d052"
+authors = ["Rajmadan Lakshmanan"]
+version = "1.0.0-DEV"
+
+[compat]
+julia = "1.6.7"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
