@@ -10,5 +10,5 @@ Documentation for [StochasticDominance](https://github.com/rajmadan96/Stochastic
 ```
 
 ```@autodocs
-Modules = [StochasticDominance]
+Modules = [StochasticDominance,AuxiliaryFunc,NewtonOpt,PSOOpt]
 ```

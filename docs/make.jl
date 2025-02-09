@@ -18,6 +18,8 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/rajmadan96/StochasticDominance.jl",
-    devbranch="main",
+    repo="github.com/rajmadan96/StochasticDominance.jl.git",
+    devbranch="main"
 )
+
+
