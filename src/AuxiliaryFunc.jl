@@ -203,6 +203,14 @@ the moments of the portfolio and benchmark distributions.
   - If the portfolio moment does not exceed the benchmark moment, the value is set to zero.
   - Otherwise, the result stores the norm of the difference.
 
+# Methodology
+- Integer Case (`p` is an integer):
+- Computes moments from order 1 order `p`.
+- Uses the function `boundary_moments_integer`.
+- Non-Integer Case (`p` is a non-integer):
+- Computes moments from order (0,1) order `p`
+- Uses the function `boundary_moments_noninteger`.
+
 # Examples
 ```julia
 boundary_moments([0.7, 0.3], [2  3; 5 6], [0.5,0.5], [0.2,0.3,0.5], [2,3,4], 3)  
@@ -231,7 +239,6 @@ function boundary_moments(x, ξ, p_ξ,p_ξ_0,ξ_0, p)
             rhs = -p_ξ_0'*ξ_0
         else
             # For k >= 2, compute central moments
-            centered_vec = vec_xξ .- mean_xξ
             lhs = dot(centered_vec .^ k, p_ξ)
             rhs = p_ξ_0'*(max.((maximum(ξ_0) .- ξ_0) .^ k,0))
         end
@@ -241,6 +248,36 @@ function boundary_moments(x, ξ, p_ξ,p_ξ_0,ξ_0, p)
             result[k] = zero(result_type)
         else
             result[k] = norm(lhs - rhs)
+        end
+    end
+    return result
+end
+
+function boundary_moments_noninteger(x, ξ, p_ξ,p_ξ_0,ξ_0, p)
+    # Convert p to an integer, pre-allocate result vector
+    
+    temp_p = Int(floor(p))
+    
+    # Determine the type for initialization
+    result_type = promote_type(eltype(x' * ξ), eltype(p_ξ), eltype(ξ_0))
+    result = zeros(result_type, temp_p+1)  # Pre-allocate the result vector
+
+    # Compute the mean of the random variable vec(x' * ξ)
+    vec_xξ = vec(x' * ξ)
+    mean_xξ = p_ξ'*vec_xξ  # Mean of vec(x' * ξ)
+
+    # Compute the mean-centered random variable vec(x' * ξ) 
+    centered_vec = max.(maximum(ξ_0) .- vec_xξ , 0)
+
+    # Compute results for each k = 1, 2, ..., p
+    for k in 0:temp_p
+            lhs = dot(centered_vec .^(p-k), p_ξ)
+            rhs = p_ξ_0'*((maximum(ξ_0) .- ξ_0) .^(p-k))
+                # Compare lhs and rhs
+        if lhs ≤ rhs
+            result[k+1] = zero(result_type)
+        else
+            result[k+1] = norm(lhs - rhs)
         end
     end
     return result
