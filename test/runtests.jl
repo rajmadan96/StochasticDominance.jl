@@ -54,6 +54,12 @@ using Test
         @test  isapprox(g_bar(x_opt, ξ, ξ_0, SDorder-1, p_ξ, p_ξ_0),0, atol=1e-4) 
     end # end of Mean Return: Higher Order Stochastic Dominance test 
 
+    @testset "Mean Return: non integer higher order" begin
+        SDorder=SDorder+0.3
+        x_opt, t_opt = StochasticDominanceMeanReturn(ξ, ξ_0,p_ξ, p_ξ_0,SDorder;max_iter=100)
+        @test  isapprox(g_bar(x_opt, ξ, ξ_0, SDorder-1, p_ξ, p_ξ_0),0, atol=1e-4)  
+    end # end of Mean Return: non integer higher order test 
+
     @testset "Risk Function: simplex" begin
         x_opt, q_opt, t_opt = StochasticDominanceRiskMeasure(ξ, ξ_0,p_ξ, p_ξ_0,SDorder;β,max_iter=100)
 
