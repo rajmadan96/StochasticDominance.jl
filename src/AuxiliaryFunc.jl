@@ -183,25 +183,25 @@ function g_bar(x, ξ, ξ_0, p, p_ξ, p_ξ_0)
 end
 
 """
-    boundary_moments(x, ξ, p_ξ, p_ξ_0, ξ_0, p)
+boundary_moments(x, ξ, p_ξ, p_ξ_0, ξ_0, p)
 
 Compute the boundary moments for higher-order stochastic dominance constraints by comparing 
 the moments of the portfolio and benchmark distributions.
 
 # Arguments
-- `x::AbstractVector{<:Number}`: Portfolio weights (simplex).
-- `ξ::AbstractVector{<:Number}`: Portfolio returns.
-- `p_ξ::AbstractVector{<:Number}`: Probability of portfolio `ξ`.
-- `p_ξ_0::AbstractVector{<:Number}`: Probability of benchmark `ξ_0`.
+- `x::AbstractVector{<:Number}`: Portfolio weights (simplex constraint).
+- `ξ::AbstractMatrix{<:Number}`: Portfolio returns.
+- `p_ξ::AbstractVector{<:Number}`: Probability distribution of the portfolio returns `ξ`.
+- `p_ξ_0::AbstractVector{<:Number}`: Probability distribution of the benchmark returns `ξ_0`.
 - `ξ_0::AbstractVector{<:Number}`: Benchmark returns.
-- `p::Integer`: The highest moment order.
+- `p::Real`: The highest moment order. If `p` is an integer, `boundary_moments_integer` is used. If `p` is non-integer, `boundary_moments_noninteger` is used.
 
 # Returns
-- A vector of length `p` containing computed moment constraints:
-  - For `k = 1`, compares the mean of the portfolio and benchmark.
-  - For `k ≥ 2`, computes and compares the central moments.
-  - If the portfolio moment does not exceed the benchmark moment, the value is set to zero.
-  - Otherwise, the result stores the norm of the difference.
+- A vector containing computed moment constraints:
+- For `k = 1`: Compares the mean of the portfolio and benchmark.
+- For `k ≥ 2`: Computes and compares the central moments.
+- If the portfolio moment does not exceed the benchmark moment, the value is set to zero.
+- Otherwise, the result stores the norm of the difference.
 
 # Methodology
 - Integer Case (`p` is an integer):
@@ -213,10 +213,22 @@ the moments of the portfolio and benchmark distributions.
 
 # Examples
 ```julia
-boundary_moments([0.7, 0.3], [2  3; 5 6], [0.5,0.5], [0.2,0.3,0.5], [2,3,4], 3)  
+# Example 1: Integer order moments
+boundary_moments([0.7, 0.3], [2 3; 5 6], [0.5, 0.5], [0.2, 0.3, 0.5], [2, 3, 4], 3)
+
+# Example 2: Non-integer order moments
+boundary_moments([0.7, 0.3], [2 3; 5 6], [0.5, 0.5], [0.2, 0.3, 0.5], [2, 3, 4], 2.7)
 ```
 """
-function boundary_moments(x, ξ, p_ξ,p_ξ_0,ξ_0, p)
+function boundary_moments(x, ξ, p_ξ, p_ξ_0, ξ_0, p)
+    if isinteger(p)
+        return boundary_moments_integer(x, ξ, p_ξ, p_ξ_0, ξ_0, p)
+    else
+        return boundary_moments_noninteger(x, ξ, p_ξ, p_ξ_0, ξ_0, p)
+    end
+end
+
+function boundary_moments_integer(x, ξ, p_ξ,p_ξ_0,ξ_0, p)
     # Convert p to an integer, pre-allocate result vector
     p = Int(p)
     
@@ -240,7 +252,7 @@ function boundary_moments(x, ξ, p_ξ,p_ξ_0,ξ_0, p)
         else
             # For k >= 2, compute central moments
             lhs = dot(centered_vec .^ k, p_ξ)
-            rhs = p_ξ_0'*(max.((maximum(ξ_0) .- ξ_0) .^ k,0))
+            rhs = p_ξ_0'*((maximum(ξ_0) .- ξ_0) .^ k)
         end
 
         # Compare lhs and rhs

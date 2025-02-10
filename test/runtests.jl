@@ -29,7 +29,7 @@ using Test
     
     
     # Stochastic Order
-    SDorder = 10.0 
+    SDorder = 5.0 
 
     # parameter(s)
 
@@ -37,39 +37,45 @@ using Test
 
     
     @testset "Mean Return: simplex" begin
-        x_opt, t_opt = StochasticDominanceMeanReturn(ξ, ξ_0,p_ξ, p_ξ_0,SDorder;)
+        x_opt, t_opt = StochasticDominanceMeanReturn(ξ, ξ_0,p_ξ, p_ξ_0,SDorder;max_iter=100)
 
         @test isapprox(round(sum(x_opt),digits=2),1, atol=1e-9)
     end # end of Mean Return: simplex test
 
     @testset "Mean Return: objective" begin
-        x_opt, t_opt = StochasticDominanceMeanReturn(ξ, ξ_0,p_ξ, p_ξ_0,SDorder;)
+        x_opt, t_opt = StochasticDominanceMeanReturn(ξ, ξ_0,p_ξ, p_ξ_0,SDorder;max_iter=100)
 
         @test MeanReturn(x_opt,ξ,p_ξ) ≥ p_ξ_0'*ξ_0
     end # end of Mean Return: objective test 
 
-    @testset "Mean Return: Higher Order Stochastic Dominance" begin
-        x_opt, t_opt = StochasticDominanceMeanReturn(ξ, ξ_0,p_ξ, p_ξ_0,SDorder;)
+    @testset "Mean Return: higher order Stochastic Dominance" begin
+        x_opt, t_opt = StochasticDominanceMeanReturn(ξ, ξ_0,p_ξ, p_ξ_0,SDorder;max_iter=100)
 
         @test  isapprox(g_bar(x_opt, ξ, ξ_0, SDorder-1, p_ξ, p_ξ_0),0, atol=1e-4) 
     end # end of Mean Return: Higher Order Stochastic Dominance test 
 
     @testset "Risk Function: simplex" begin
-        x_opt, q_opt, t_opt = StochasticDominanceRiskMeasure(ξ, ξ_0,p_ξ, p_ξ_0,SDorder;β)
+        x_opt, q_opt, t_opt = StochasticDominanceRiskMeasure(ξ, ξ_0,p_ξ, p_ξ_0,SDorder;β,max_iter=100)
 
         @test isapprox(round(sum(x_opt),digits=2),1, atol=1e-8)
     end # end of Risk Function test
 
     @testset "Risk Function: objective" begin
-        x_opt, q_opt, t_opt = StochasticDominanceRiskMeasure(ξ, ξ_0,p_ξ, p_ξ_0,SDorder;β)
+        x_opt, q_opt, t_opt = StochasticDominanceRiskMeasure(ξ, ξ_0,p_ξ, p_ξ_0,SDorder;β,max_iter=100)
 
         @test RiskFunction(x_opt, q_opt, ξ, SDorder-1, p_ξ, β) ≤  BenchmarkRiskFunction(q_opt, ξ_0, SDorder-1, p_ξ_0, β)
     end # end of Risk Function test
     
-    @testset "Risk Function: Higher Order Stochastic Dominance" begin
-        x_opt, q_opt, t_opt = StochasticDominanceRiskMeasure(ξ, ξ_0,p_ξ, p_ξ_0,SDorder;β)
+    @testset "Risk Function: higher order Stochastic Dominance" begin
+        x_opt, q_opt, t_opt = StochasticDominanceRiskMeasure(ξ, ξ_0,p_ξ, p_ξ_0,SDorder;β,max_iter=100)
         @test  isapprox(g_bar(x_opt, ξ, ξ_0, SDorder-1, p_ξ, p_ξ_0),0, atol=1e-4) 
-    end # end of Mean Return: Higher Order Stochastic Dominance test 
+    end # end of Risk Function: Higher Order Stochastic Dominance test 
+
+    @testset "Risk Function: non integer higher order" begin
+        SDorder=SDorder+0.3
+        x_opt, q_opt, t_opt = StochasticDominanceRiskMeasure(ξ, ξ_0,p_ξ, p_ξ_0,SDorder;β,max_iter=100)
+        @test  isapprox(g_bar(x_opt, ξ, ξ_0, SDorder-1, p_ξ, p_ξ_0),0, atol=1e-4) 
+    end # end of Risk Function: non integer higher order test 
 
 end # end of master test
 
