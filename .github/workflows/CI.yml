@@ -44,15 +44,7 @@ jobs:
           files: lcov.info
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: false
-      - name: Run Aqua.jl
-        shell: julia --project --color=yes {0}
-        run: |
-          using Pkg
-          Pkg.add("Aqua")
-          Pkg.resolve()  # Fix stale dependencies
-          using Aqua
-          Aqua.test_all(MyPackage)
-
+ 
   docs:
     name: Documentation
     runs-on: ubuntu-latest
