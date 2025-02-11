@@ -1,7 +1,3 @@
-```@meta
-CurrentModule = StochasticDominance
-```
-
 # StochasticDominance.jl
 
 We present the `StochasticDominance.jl` package, which provides tools for analyzing higher order stochastic dominance—a method used to establish a partial order between random variables.
