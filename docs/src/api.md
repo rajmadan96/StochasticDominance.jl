@@ -1,0 +1,24 @@
+# API Reference
+
+## Main Functions
+
+```@docs
+StochasticDominanceMeanReturn
+StochasticDominanceRiskMeasure
+AuxiliaryFunc.safe_exponent
+AuxiliaryFunc.simplex1
+AuxiliaryFunc.simplex2
+AuxiliaryFunc.g_p_minus_1
+AuxiliaryFunc.g_p
+AuxiliaryFunc.g_bar
+AuxiliaryFunc.boundary_moments
+AuxiliaryFunc.CheckConvergenceSimplex
+AuxiliaryFunc.CheckConvergenceSD
+AuxiliaryFunc.MeanReturn
+AuxiliaryFunc.plotOptimalAssetAllocationMeanReturn
+AuxiliaryFunc.RiskFunction
+AuxiliaryFunc.BenchmarkRiskFunction
+AuxiliaryFunc.plotOptimalAssetAllocationRiskFunction
+Newton
+PSO 
+
