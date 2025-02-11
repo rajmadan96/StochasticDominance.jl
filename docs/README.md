@@ -1,43 +1,123 @@
-# StochasticDominance.jl
+---
+layout: default
+---
 
-We present the `StochasticDominance.jl` package, which provides tools for analyzing higher order stochastic dominance—a method used to establish a partial order between random variables.
+Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-## Brief overview of stochastic dominance
+[Link to another page](./another-page.html).
 
-Stochastic dominance is a concept used to compare decision alternatives based on their cumulative risk profiles, ensuring that one alternative is preferred over another without any trade-offs across values.
-In the context of portfolio optimization, given a benchmark asset and a portfolio of assets, we seek an optimal allocation that maximizes a chosen objective (e.g., maximizing returns) while satisfying (higher-order) stochastic dominance constraints. 
+There should be whitespace between paragraphs.
 
-## Main features of the package
+There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
-StochasticDominance.jl 
+# Header 1
 
-The `StochasticDominance.jl` package provides tools to:
+This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
-1. **Verify higher-order stochastic dominance** – Check whether a given portfolio satisfies higher-order dominance criteria relative to a benchmark asset.
-2. **Determine the optimal allocation** – Find the asset allocation that maximizes a chosen objective (e.g., maximizing returns) while adhering to stochastic dominance constraints. It supports two key objective functions: maximizing expected returns and minimizing higher-order risk measures.  
+## Header 2
 
-## Installation
+> This is a blockquote following a header.
+>
+> When something is important enough, you do it even if the odds are not in your favor.
 
-The package `StochasticDominance.jl` can be installed in Julia REPL as follows:
+### Header 3
 
-```julia
-julia> using Pkg
-julia> Pkg.add("StochasticDominance")
-julia> using StochasticDominance
+```js
+// Javascript code with syntax highlighting.
+var fun = function lang(l) {
+  dateformat.i18n = require('./lang/' + l)
+  return true;
+}
 ```
 
-Once you have installed `StochasticDominance.jl`, we recommend going through the tutorials from beginning to end to understand how to use the package to verify stochastic dominance and determine the optimal allocation between a benchmark asset and a portfolio.
+```ruby
+# Ruby code with syntax highlighting
+GitHubPages::Dependencies.gems.each do |gem, version|
+  s.add_dependency(gem, "= #{version}")
+end
+```
 
-## Important functions in the package
+#### Header 4
 
-The `StochasticDominance.jl` package provides several important functions, which are explained in detail in the tutorials section.
-Here, we provide a brief overview of the functions.
+*   This is an unordered list following a header.
+*   This is an unordered list following a header.
+*   This is an unordered list following a header.
 
-1. `VerifyDominance`: This function checks whether the given benchmark asset and the weighted portfolio assets exhibit a dominance relationship for the specified stochastic order. Note that the benchmark asset scenario and the weighted portfolio assets must have the same length for a valid comparison.
+##### Header 5
 
-2. `StochasticDominanceMeanReturn`: This function determines the optimal asset allocation that maximizes expected returns for a given stochastic order (`SDorder`).
-Additionally, using `StochasticDominanceMeanReturn(; plots=true)`, users can generate a pie chart displaying the optimal allocation in percentages, along with the maximized expected returns and benchmark returns. The function also includes the option `StochasticDominanceMeanReturn(; verbose=true)`, which allows users to evaluate the convergence (or dominance) quality.
+1.  This is an ordered list following a header.
+2.  This is an ordered list following a header.
+3.  This is an ordered list following a header.
 
-3. `StochasticDominanceRiskMeasure`: This function determines the optimal asset allocation by minimizing higher-order risk measures for a given stochastic order (`SDorder`) while also indicating whether dominance is achieved.  
-Additionally, using `StochasticDominanceRiskMeasure(; plots=true)`, users can generate a pie chart that visualizes the optimal allocation in percentages, along with the maximized expected returns and benchmark returns. The function also provides the option `StochasticDominanceRiskMeasure(; verbose=true)`, allowing users to assess the convergence (or dominance) quality.
+###### Header 6
 
+| head1        | head two          | three |
+|:-------------|:------------------|:------|
+| ok           | good swedish fish | nice  |
+| out of stock | good and plenty   | nice  |
+| ok           | good `oreos`      | hmm   |
+| ok           | good `zoute` drop | yumm  |
+
+### There's a horizontal rule below this.
+
+* * *
+
+### Here is an unordered list:
+
+*   Item foo
+*   Item bar
+*   Item baz
+*   Item zip
+
+### And an ordered list:
+
+1.  Item one
+1.  Item two
+1.  Item three
+1.  Item four
+
+### And a nested list:
+
+- level 1 item
+  - level 2 item
+  - level 2 item
+    - level 3 item
+    - level 3 item
+- level 1 item
+  - level 2 item
+  - level 2 item
+  - level 2 item
+- level 1 item
+  - level 2 item
+  - level 2 item
+- level 1 item
+
+### Small image
+
+![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
+
+### Large image
+
+![Branching](https://guides.github.com/activities/hello-world/branching.png)
+
+
+### Definition lists can be used with HTML syntax.
+
+<dl>
+<dt>Name</dt>
+<dd>Godzilla</dd>
+<dt>Born</dt>
+<dd>1952</dd>
+<dt>Birthplace</dt>
+<dd>Japan</dd>
+<dt>Color</dt>
+<dd>Green</dd>
+</dl>
+
+```
+Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+```
+
+```
+The final element.
+```
