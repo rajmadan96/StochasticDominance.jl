@@ -18,7 +18,7 @@ deploydocs(;
 	repo = "git@github.com:rajmadan96/StochasticDominance.jl.git",
 	target="build",
 	#devbranch = "main",
-    	push_preview=false)
+    	push_preview=false
 )
 
 
