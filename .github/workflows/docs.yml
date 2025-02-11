@@ -1,9 +1,9 @@
-name: Deploy Documentation
+name: Documentation
 
 on:
   push:
     branches:
-      - main  # Change if your default branch is different
+      - main  # or "master", depending on your repo
 
 jobs:
   docs:
@@ -14,20 +14,21 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Install Julia
+      - name: Set up Julia
         uses: julia-actions/setup-julia@latest
         with:
-          version: '1.9'  # Update to match your Julia version
+          version: '1.9'  # Adjust based on your Julia version
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: |
-          julia --project=docs -e 'using Pkg; Pkg.develop(path="."); Pkg.instantiate()'
+          julia --project=docs -e 'using Pkg; Pkg.instantiate()'
 
-      - name: Build Documentation
+      - name: Build documentation
         run: |
           julia --project=docs docs/make.jl
 
       - name: Deploy to GitHub Pages
+        if: success()
         run: |
           julia --project=docs -e 'using Documenter; include("docs/make.jl")'
         env:
