@@ -19,9 +19,9 @@ jobs:
         with:
           version: '1.9'  # Adjust based on your Julia version
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: |
-          julia --project=docs -e 'using Pkg; Pkg.instantiate()'
+          julia --project=docs -e 'using Pkg; Pkg.develop(path="."); Pkg.instantiate()'
 
       - name: Build documentation
         run: |
