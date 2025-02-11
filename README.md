@@ -5,7 +5,7 @@
 
 # StochasticDominance.jl
 
-StochasticDominance.jl` is a Julia package that offers tools for analyzing higher-order stochastic dominance, a technique used to define a partial order between random variables.
+`Stochasticominance.jl` is a Julia package that offers tools for analyzing higher-order stochastic dominance, a technique used to define a partial order between random variables.
 
 ## Brief overview of stochastic dominance
 
