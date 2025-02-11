@@ -17,10 +17,9 @@ makedocs(
 )
 
 deploydocs(; 
-	repo = "github.com/rajmadan96/StochasticDominance.jl.git",
-	target = "build",
+	repo = "git@github.com:rajmadan96/StochasticDominance.jl.git",
 	devbranch = "main",
-    	versions = ["stable" => "v^", "v#.#"]
+    	
 )
 
 
