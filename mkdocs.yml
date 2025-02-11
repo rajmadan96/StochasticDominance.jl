@@ -6,10 +6,10 @@ theme:
   favicon: assets/favicon.ico  # Optional
 
 nav:
-  - Home: docs/src/index.md
+  - Home: index.md
   - Tutorials:
-      - Introduction: docs/tutorial/tutorial1.md
-      - Scenario Trees: docs/tutorial/tutorial2.md
+      - Introduction: tutorial/tutorial1.md
+      - Scenario Trees: tutorial/tutorial2.md
           
 markdown_extensions:
   - toc:
