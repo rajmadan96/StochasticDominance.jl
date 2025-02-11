@@ -14,8 +14,6 @@ In the context of portfolio optimization, given a benchmark asset and a portfoli
 
 ## Main features of the package
 
-StochasticDominance.jl 
-
 The `StochasticDominance.jl` package provides tools to:
 
 1. **Verify higher-order stochastic dominance** – Check whether a given portfolio satisfies higher-order dominance criteria relative to a benchmark asset.
