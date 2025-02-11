@@ -1,7 +1,5 @@
 using StochasticDominance
 using Documenter
-#push!(LOAD_PATH,"/home/mathe/lvhome10/users/personal/lraj/Nextcloud/SD/HOME1/users/personal/lraj/Nextcloud/SD/Github/StochasticDominance/Project.toml")
-#DocMeta.setdocmeta!(StochasticDominance, :DocTestSetup, :(using StochasticDominance); recursive=true)
 
 makedocs(
 	sitename =  "StochasticDominance.jl",
@@ -18,8 +16,9 @@ makedocs(
 
 deploydocs(; 
 	repo = "git@github.com:rajmadan96/StochasticDominance.jl.git",
-	devbranch = "main",
-    	
+	target="build",
+	#devbranch = "main",
+    	push_preview=false)
 )
 
 
