@@ -33,4 +33,9 @@ jobs:
           julia --project=docs -e 'using Documenter; include("docs/make.jl")'
         env:
           DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }}
-
+      - name: Decode SSH Key
+        run: |
+          echo "${{ secrets.DOCUMENTER_KEY }}" | base64 --decode > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+        
+        
