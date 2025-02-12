@@ -23,7 +23,14 @@ jobs:
         run: |
           julia --project=docs -e 'using Pkg; Pkg.develop(path="."); Pkg.instantiate()'
 
-      - name: Build documentation
+      - name: Setup SSH Key  # Ensure SSH key is available for deployment
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DOCUMENTER_KEY }}" | base64 --decode > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Build Documentation
         run: |
           julia --project=docs docs/make.jl
 
@@ -33,9 +40,3 @@ jobs:
           julia --project=docs -e 'using Documenter; include("docs/make.jl")'
         env:
           DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }}
-      - name: Decode SSH Key
-        run: |
-          echo "${{ secrets.DOCUMENTER_KEY }}" | base64 --decode > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-        
-        
