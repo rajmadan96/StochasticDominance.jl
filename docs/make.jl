@@ -1,7 +1,5 @@
 using StochasticDominance
 using Documenter
-#push!(LOAD_PATH,"/home/mathe/lvhome10/users/personal/lraj/Nextcloud/SD/HOME1/users/personal/lraj/Nextcloud/SD/Github/StochasticDominance/Project.toml")
-#DocMeta.setdocmeta!(StochasticDominance, :DocTestSetup, :(using StochasticDominance); recursive=true)
 
 makedocs(
 	sitename =  "StochasticDominance.jl",
@@ -24,11 +22,7 @@ deploydocs(
     branch = "gh-pages",
     push_preview = true,
     forcepush = true,
-<<<<<<< HEAD
     deploy_config = Documenter.GitHubActions(),  # Ensure it's using GitHub Actions
-=======
-    deploy_config = Documenter.GitHubActions(),  
->>>>>>> bf4f4fc (Updated CI workflow, README, and documentation)
 )
 
 
