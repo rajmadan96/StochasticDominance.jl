@@ -1,0 +1,34 @@
+name: Deploy Documentation
+
+on:
+  push:
+    branches:
+      - main  # Change if your default branch is different
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - name: Install Julia
+        uses: julia-actions/setup-julia@latest
+        with:
+          version: '1.9'  # Update to match your Julia version
+
+      - name: Install Dependencies
+        run: |
+          julia --project=docs -e 'using Pkg; Pkg.develop(path="."); Pkg.instantiate()'
+
+      - name: Build Documentation
+        run: |
+          julia --project=docs docs/make.jl
+
+      - name: Deploy to GitHub Pages
+        run: |
+          julia --project=docs -e 'using Documenter; include("docs/make.jl")'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
