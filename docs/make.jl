@@ -24,8 +24,13 @@ deploydocs(
     branch = "gh-pages",
     push_preview = true,
     forcepush = true,
+<<<<<<< HEAD
     deploy_config = Documenter.GitHubActions(),  # Ensure it's using GitHub Actions
+=======
+    deploy_config = Documenter.GitHubActions(),  
+>>>>>>> bf4f4fc (Updated CI workflow, README, and documentation)
 )
+
 
 
 
