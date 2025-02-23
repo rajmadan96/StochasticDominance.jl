@@ -19,10 +19,12 @@ makedocs(
 		]
 )
 
-deploydocs(; 
-	repo = "https://github.com/rajmadan96/StochasticDominance.jl.git",
-	branch = "gh-pages",  # Ensure you're using the correct branch for deployment
-    push_preview = true
+deploydocs(
+    repo = "github.com/rajmadan96/StochasticDominance.jl.git",
+    branch = "gh-pages",
+    push_preview = true,
+    forcepush = true,
+    deploy_config = Documenter.GitHubActions(),  # Ensure it's using GitHub Actions
 )
 
 
