@@ -37,15 +37,8 @@ The `StochasticDominance.jl` package provides several important functions, which
 Here, we provide a brief overview of the functions.
 1. `verify_dominance`: This function checks whether the given benchmark asset, represented as the random variable $X$, and the weighted portfolio asset, represented as the random variable $Y$, exhibit a dominance relationship for the specified stochastic order. This means that $Y$ consistently yields preferable outcomes over $X$ in the specified stochastic order. 
 
-<<<<<<< HEAD
 2. `optimize_max_return_SD`: This function determines the optimal asset allocation that maximizes expected returns for a given stochastic order (`SDorder`). Additionally, using `optimize_max_return_SD(; plots=true)`, users can generate a pie chart displaying the optimal allocation in percentages, along with the maximized expected returns and benchmark returns. The function also includes the option `optimize_max_return_SD(; verbose=true)`,  which allows users to imprint the convergence (or dominance) of the numerical method.
 
-=======
-1. `verify_dominance`: This function checks whether the given benchmark asset, represented as the random variable $X$, and the weighted portfolio asset, represented as the random variable $Y$, exhibit a dominance relationship for the specified stochastic order. This means that $Y$ consistently yields preferable outcomes over $X$ in the specified stochastic order. 
-
-2. `optimize_max_return_SD`: This function determines the optimal asset allocation that maximizes expected returns for a given stochastic order (`SDorder`). Additionally, using `optimize_max_return_SD(; plots=true)`, users can generate a pie chart displaying the optimal allocation in percentages, along with the maximized expected returns and benchmark returns. The function also includes the option `optimize_max_return_SD(; verbose=true)`,  which allows users to imprint the convergence (or dominance) of the numerical method.
-
->>>>>>> bf4f4fc (Updated CI workflow, README, and documentation)
 3. `optimize_min_riskreturn_SD`: This function determines the optimal asset allocation by minimizing higher-order risk measures for a given stochastic order (`SDorder`) while also indicating whether dominance is achieved. Additionally, using `optimize_min_riskreturn_SD(; plots=true)`, users can generate a pie chart that visualizes the optimal allocation in percentages, along with the minimizing higher-order risk measure returns. The function also provides the option `optimize_min_riskreturn_SD(; verbose=true)`, allowing users to assess the convergence (or dominance) of the numerical algorithm.
 
 
