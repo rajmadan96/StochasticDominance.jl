@@ -1,7 +1,7 @@
 name = "StochasticDominance"
 uuid = "8041b248-d9a2-49d2-9c7f-91ddf745d052"
 authors = ["Rajmadan Lakshmanan"]
-version = "1.0.0"
+version = "1.0.1"
 
 [deps]
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
