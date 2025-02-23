@@ -6,7 +6,7 @@ CurrentModule = StochasticDominance
 
 This tutorial demonstrates the function `verify_dominance`, which validates the dominance relationship between $Y$ and $X$.
 
-## Verifying Stochastic Dominance (example 1)
+## Example 1
 To verify if $Y$ stochastically dominates $X$ under the specified order `SDorder = 2`, we use the function `verify_dominance`
 
 ### Defining Random Variables $X$ and $Y$
@@ -31,7 +31,7 @@ julia> verify_dominance(Y, X,SDorder;p_Y, p_X)
 This function checks whether $Y$ stochastically dominates $X$ of order `SDorder`. The `verbose=true` option ensures detailed output, providing insights into the dominance verification process.
 
 
-## Verifying Stochastic Dominance (example 2)
+## Example 2
 
 Consider two discrete random variables, $X$ and $Y$, with swapped roles. Their values and associated probabilities are:
 
