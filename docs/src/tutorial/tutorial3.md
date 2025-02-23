@@ -2,7 +2,7 @@
 CurrentModule = StochasticDominance
 ```
 
-# Optimization: maximizing expected returns
+# Optimization: Maximizing Expected Returns
 
 This tutorial demonstrates how to use the `optimize_max_return_SD` function to find the optimal portfolio allocation $x$. This function ensures that the weighted portfolio assets $x^{\top}\xi$ dominate the benchmark $\xi_0$ while maximizing $\mathbb{E}\, x^{\top} \xi$.
 
