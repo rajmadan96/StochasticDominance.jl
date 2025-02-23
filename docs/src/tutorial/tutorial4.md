@@ -2,7 +2,7 @@
 CurrentModule = StochasticDominance
 ```
 
-# Optimization: minimizing higher-order risk measures
+# Optimization: Minimizing Higher Order Risk Measures
 
 This tutorial demonstrates how to use the `optimize_min_riskreturn_SD` function to find the optimal portfolio allocation $x$. This function ensures that the weighted portfolio assets $x^{\top}\xi$ dominate the benchmark $\xi_0$ while minimizing higher-order risk measures with respect to $-x^{\top} \xi$.
 
