@@ -94,7 +94,7 @@ Compute the derivative of Higher order stochastic domiance constraint for single
 - `x::AbstractVector{<:Number}`: portfolio weights (simplex).
 - `ξ::AbstractVector{<:Number}`: portfolio.
 - `ξ_0::Number`: Benchmark returns.
-- `p::Number`: The exponent parameter.
+- `p::Number`: The order-1 of stochastic dominance.
 - `p_ξ::Number`: Probability of portfolio `ξ`.
 - `p_ξ_0::Number`: Probability of benchmark  `ξ_0`.
 
@@ -125,7 +125,7 @@ Compute the higher-order stochastic dominance constraint for a single `t`, where
 - `x::AbstractVector{<:Number}`: Portfolio weights (simplex).
 - `ξ::AbstractVector{<:Number}`: Portfolio returns.
 - `ξ_0::Number`: Benchmark returns.
-- `p::Number`: The exponent parameter.
+- `p::Number`: The order-1 of stochastic dominance.
 - `p_ξ::Number`: Probability of portfolio `ξ`.
 - `p_ξ_0::Number`: Probability of benchmark `ξ_0`.
 
@@ -154,7 +154,7 @@ Compute the verification of the higher-order stochastic dominance constraint by 
 - `x::AbstractVector{<:Number}`: Portfolio weights (simplex).
 - `ξ::AbstractVector{<:Number}`: Portfolio returns.
 - `ξ_0::AbstractVector{<:Number}`: Benchmark returns.
-- `p::Number`: The exponent parameter.
+- `p::Number`: The order-1 of stochastic dominance.
 - `p_ξ::AbstractVector{<:Number}`: Probability of portfolio `ξ`.
 - `p_ξ_0::AbstractVector{<:Number}`: Probability of benchmark `ξ_0`.
 
@@ -339,7 +339,7 @@ by computing the norm of constraint violations.
 - `t::Number`: A scalar threshold value for dominance constraints.
 - `ξ::AbstractVector{<:Number}`: Portfolio returns.
 - `ξ_0::AbstractVector{<:Number}`: Benchmark returns.
-- `p::Integer`: The order of stochastic dominance.
+- `p::Number`: The order-1 of stochastic dominance.
 - `p_ξ::AbstractVector{<:Number}`: Probability of portfolio `ξ`.
 - `p_ξ_0::AbstractVector{<:Number}`: Probability of benchmark `ξ_0`.
 
@@ -391,7 +391,7 @@ function expected_portfolio_return(x,ξ,p_ξ)
 end
 
 """
-    plot_max_return(x, ξ, p_ξ, ξ_0, p_ξ_0)
+    plot_max_return(x, ξ, p_ξ, ξ_0, p_ξ_0,p)
 
 Plot the optimal asset allocation as a pie chart, displaying portfolio weights 
 and comparing mean return to a benchmark.
@@ -402,18 +402,18 @@ and comparing mean return to a benchmark.
 - `p_ξ::AbstractVector{<:Number}`: Probability distribution over the portfolio scenarios.
 - `ξ_0::AbstractVector{<:Number}`: Benchmark returns.
 - `p_ξ_0::AbstractVector{<:Number}`: Probability distribution over the benchmark scenarios.
-
+- `p::Number`: The order-1 of stochastic dominance.
 # Returns
 - A pie chart illustrating the portfolio weights.
 - Annotates the mean return and benchmark return.
 
 # Examples
 ```julia
-plot_max_return([0.4, 0.6], [2  3; 5 6], [0.5,0.5], [2,3], [0.2,0.8])  
+plot_max_return([0.4, 0.6], [2  3; 5 6], [0.5,0.5], [2,3], [0.2,0.8],2.2)  
 # Generates a pie chart of asset allocation and displays mean return vs. benchmark.
 ```
 """
-function plot_max_return(x, ξ, p_ξ, ξ_0, p_ξ_0)
+function plot_max_return(x, ξ, p_ξ, ξ_0, p_ξ_0,p)
     portfolio_return = round(expected_portfolio_return(x, ξ, p_ξ), digits=3)
     benchmark = round(p_ξ_0' * ξ_0, digits=3)
     x_percentage= round.(abs.(x)./sum(abs.(x))*100,digits=1)
@@ -465,7 +465,7 @@ end
 
 
 """
-    plot_min_return(x, q, ξ, p_ξ, ξ_0, p_ξ_0, p)
+    plot_min_return(x, q, ξ, p_ξ, ξ_0, p_ξ_0, p,r,β)
 
 Plot the optimal asset allocation as a pie chart, displaying portfolio weights and comparing 
 the portfolio risk function to the benchmark risk function.
@@ -477,7 +477,9 @@ the portfolio risk function to the benchmark risk function.
 - `p_ξ::AbstractVector{<:Number}`: Probability distribution over the portfolio scenarios.
 - `ξ_0::AbstractVector{<:Number}`: Benchmark returns.
 - `p_ξ_0::AbstractVector{<:Number}`: Probability distribution over the benchmark scenarios.
-- `p::Number`: Exponent parameter controlling tail risk sensitivity.
+- `p::Number`: The order-1 of stochastic dominance.
+- `r`: Norm parameter.
+- `β`: Risk aversion parameter (closer to 1 indicates higher aversion).
 
 # Returns
 - A pie chart illustrating the portfolio weights.
@@ -485,10 +487,10 @@ the portfolio risk function to the benchmark risk function.
 
 # Examples
 ```julia
-plotOptimalAssetAllocationRiskFunction([0.4, 0.6], 1.5, [2  3; 5 6], [0.5,0.5], [2,3], [0.2,0.8], 3)  
+plotOptimalAssetAllocationRiskFunction([0.4, 0.6], 1.5, [2  3; 5 6], [0.5,0.5], [2,3], [0.2,0.8], 3,2.0,0.5)  
 ```
 """
-function plot_min_return(x,q,B_q,ξ, p_ξ, ξ_0, p_ξ_0,p,r)
+function plot_min_return(x,q,B_q,ξ, p_ξ, ξ_0, p_ξ_0,p,r,β)
     OptRisk  = round(riskfunction_asset_allocation(x, q, ξ, r, p_ξ, β), digits=3)
     BenchmarkRisk = round(riskfunction(B_q, ξ_0, r, p_ξ_0, β), digits=3)
     x_percentage= round.(abs.(x)./sum(abs.(x))*100,digits=1)
