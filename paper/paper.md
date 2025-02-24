@@ -1,5 +1,5 @@
 ---
-title: 'StochasticDominance.jl: A Julia Package for Higher Order Stochastic Dominance'
+title: "StochasticDominance.jl: A Julia Package for Higher Order Stochastic Dominance"
 tags:
   - Julia
   - stochastic dominance
@@ -9,16 +9,17 @@ tags:
 authors:
   - name: Rajmadan Lakshmanan
     orcid: 0009-0006-3273-9063
-    affiliation: 1 
+    affiliation: 1
   - name: Alois Pichler
     orcid: 0000-0001-8876-2429
     affiliation: 1
- affiliations:
- - name: Faculty of Mathematics, University of Technology, Chemnitz, Germany
-   index: 1
-date: 24 February 2025
-bibliography: paper.bib
+affiliations:
+  - name: "Faculty of Mathematics, University of Technology, Chemnitz, Germany"
+    index: 1
+date: "24 February 2025"
+bibliography: "paper.bib"
 ---
+
 
 # Summary
 
