@@ -31,6 +31,11 @@ julia> Pkg.add("StochasticDominance")
 julia> using StochasticDominance
 ```
 
+## Documentation
+
+The stable documentation for **StochasticDominance.jl** can be found [here](https://rajmadan96.github.io/StochasticDominance.jl/dev/). It provides detailed descriptions of the package's functions along with examples showcasing its various features.
+
+
 ### **Option 2: Clone from GitHub**
 If you want to use the latest development version, clone the repository and build manually:
 ```sh
