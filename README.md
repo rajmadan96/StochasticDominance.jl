@@ -50,7 +50,6 @@ julia> Pkg.instantiate()  # Install dependencies
 julia> using StochasticDominance
 ```
 
-
 Once you have installed `StochasticDominance.jl`, we recommend going through the tutorials from beginning to end to understand how to use the package to verify stochastic dominance and determine the optimal allocation between a benchmark asset and a portfolio.
 
 ## Important functions in the package
@@ -63,4 +62,14 @@ Here, we provide a brief overview of the functions.
 
 3. `optimize_min_riskreturn_SD`: This function determines the optimal asset allocation by minimizing higher-order risk measures for a given stochastic order (`SDorder`) while also indicating whether dominance is achieved. Additionally, using `optimize_min_riskreturn_SD(; plots=true)`, users can generate a pie chart that visualizes the optimal allocation in percentages, along with the minimizing higher-order risk measure returns. The function also provides the option `optimize_min_riskreturn_SD(; verbose=true)`, allowing users to assess the convergence (or dominance) of the numerical algorithm.
 
+## Citing StochasticDominance.jl
 
+We ask that you please cite the following [paper](https://arxiv.org/html/2502.17043v1) if you use `StochasticDominance.jl`:
+```
+@misc{LakshmananPichler2025,
+        author={Rajmadan Lakshmanan and Alois Pichler},
+        title={StochasticDominance.jl: A Julia Package for Higher Order Stochastic Dominance},
+        year = {2025},
+        url={https://arxiv.org/abs/2502.17043}
+}
+```
