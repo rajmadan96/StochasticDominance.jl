@@ -192,7 +192,7 @@ function optimize_max_return_SD(ξ::AbstractMatrix{T},
                     println("Stochastic Dominance Constraints residuals: ", convergence_SD(x_opt_best, t_opt_best, ξ, ξ_0, p, p_ξ, p_ξ_0))    
                 end 
                 if plot
-                    plot_max_return(x_opt_best, ξ, p_ξ, ξ_0, p_ξ_0)
+                    plot_max_return(x_opt_best, ξ, p_ξ, ξ_0, p_ξ_0,p)
                 end
                 break  # Break the outer while loop after max_ipot consecutive failures                
             end
