@@ -220,7 +220,7 @@ function optimize_min_riskreturn_SD(ξ::AbstractMatrix{T},
                     end 
                     if plot
                         B_q = optimize_min_risk(ξ_0,p_ξ_0;β=β,r=r,ε=1e-5,max_iter=50,n_particles=1000,max_ipot=50)
-                        plot_min_return(x_opt_best,q_opt_best,B_q,ξ, p_ξ, ξ_0, p_ξ_0,p,r)
+                        plot_min_return(x_opt_best,q_opt_best,B_q,ξ, p_ξ, ξ_0, p_ξ_0,p,r,β)
                     end
                     break  # Break the outer while loop after max_ipot consecutive failures                
                 end
