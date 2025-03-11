@@ -2,6 +2,7 @@
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://rajmadan96.github.io/StochasticDominance.jl/dev/)
 [![Aqua QA](https://img.shields.io/badge/Aqua.jl-%F0%9F%8C%A2-aqua.svg)](https://github.com/JuliaTesting/Aqua.jl)
 ![CI](https://github.com/rajmadan96/StochasticDominance.jl/actions/workflows/ci.yml/badge.svg)
+[![status](https://joss.theoj.org/papers/80815ed15890ff2ecf475046ac12570d/status.svg)](https://joss.theoj.org/papers/80815ed15890ff2ecf475046ac12570d)
 
 # StochasticDominance.jl
 
