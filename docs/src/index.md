@@ -41,3 +41,7 @@ Here, we provide a brief overview of the functions.
 
 3. `optimize_min_riskreturn_SD`: This function determines the optimal asset allocation by minimizing higher-order risk measures for a given stochastic order (`SDorder`) while also indicating whether dominance is achieved. Additionally, using `optimize_min_riskreturn_SD(; plots=true)`, users can generate a pie chart that visualizes the optimal allocation in percentages, along with the minimizing higher-order risk measure returns. The function also provides the option `optimize_min_riskreturn_SD(; verbose=true)`, allowing users to assess the convergence (or dominance) of the numerical algorithm.
 
+
+**Contribute**: Submit pull requests to improve features or fix bugs.
+**Report Issues**: Use the Issues tab to flag bugs, errors, or unexpected behavior.
+**Support**: For questions or help, open a discussion or create an issue.
