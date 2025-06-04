@@ -187,6 +187,7 @@ function optimize_max_return_SD(ξ::AbstractMatrix{T},
             failure_count += 1  # Increment failure count when the condition is not met
             
             if failure_count >= max_ipot
+               println("A feasible portfolio exists — Stochastic Dominance of order $SDorder is satisfied.") 
                 if verbose 
                     println("Simplex Constraints residuals: ", convergence_simplex(x_opt_best))
                     println("Stochastic Dominance Constraints residuals: ", convergence_SD(x_opt_best, t_opt_best, ξ, ξ_0, p, p_ξ, p_ξ_0))    
