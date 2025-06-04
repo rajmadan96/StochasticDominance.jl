@@ -19,6 +19,8 @@ Verify if `Y` stochastically dominates `X` at a given stochastic oder
 
 # Returns
 - A message indicating whether `Y` stochastically dominates `X` at order `SDorder`.
+- `true` if `Y` stochastically dominates `X` at the given order.
+- `false` otherwise.
 
 # Examples
 ```julia
@@ -83,17 +85,19 @@ function verify_dominance(Y::AbstractVector{T},
 
     # Output    
     if norm(stochastic_dominance_constraints)  ≤ ε
-        println("Y dominates X in stochastic order $SDorder")
         if verbose
             accuracy = (1-norm(stochastic_dominance_constraints))*100
             println("Y dominates X in stochastic order $SDorder with $accuracy % accuracy")
         end
+        println("Y dominates X in stochastic order $SDorder")
+        return true 
     else
-        println("Y doesn't dominates X in stochastic order $SDorder")
-         if verbose
+        if verbose
                 residual = norm(stochastic_dominance_constraints)
                 println("Y doesn't dominates X in stochastic order $SDorder with residual $residual") 
-         end
+        end
+        println("Y doesn't dominates X in stochastic order $SDorder")
+        return false
     end
 end
 
