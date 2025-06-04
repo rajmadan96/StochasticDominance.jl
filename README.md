@@ -74,3 +74,9 @@ We ask that you please cite the following [paper](https://arxiv.org/html/2502.17
         url={https://arxiv.org/abs/2502.17043}
 }
 ```
+
+**Contribute**: Submit pull requests to improve features or fix bugs.
+
+**Report Issues**: Use the Issues tab to flag bugs, errors, or unexpected behavior.
+
+**Support**: For questions or help, open a discussion or create an issue.
