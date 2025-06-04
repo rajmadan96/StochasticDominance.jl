@@ -26,7 +26,7 @@ You can install `StochasticDominance.jl` in Julia using either **`Pkg.add`** or 
 
 ### **Option 1: Install from the Julia General Registry**
 This is the easiest way to install the package:
-```julia
+```julia-repl
 julia> using Pkg
 julia> Pkg.add("StochasticDominance")
 julia> using StochasticDominance
@@ -45,7 +45,7 @@ cd StochasticDominance.jl
 julia --project=.
 ```
 Then, inside the Julia REPL:
-```julia
+```julia-repl
 julia> using Pkg
 julia> Pkg.instantiate()  # Install dependencies
 julia> using StochasticDominance
