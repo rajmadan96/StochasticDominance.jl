@@ -43,5 +43,7 @@ Here, we provide a brief overview of the functions.
 
 
 **Contribute**: Submit pull requests to improve features or fix bugs.
+
 **Report Issues**: Use the Issues tab to flag bugs, errors, or unexpected behavior.
+
 **Support**: For questions or help, open a discussion or create an issue.
