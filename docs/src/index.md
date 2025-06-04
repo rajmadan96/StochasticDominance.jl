@@ -23,9 +23,9 @@ The `StochasticDominance.jl` package provides tools to:
 The package `StochasticDominance.jl` can be installed in Julia REPL as follows:
 
 ```julia
-julia> using Pkg
-julia> Pkg.add("StochasticDominance")
-julia> using StochasticDominance
+using Pkg
+Pkg.add("StochasticDominance")
+using StochasticDominance
 ```
 
 Once you have installed `StochasticDominance.jl`, we recommend going through the tutorials from beginning to end to understand how to use the package to verify stochastic dominance and determine the optimal allocation between a benchmark asset and a portfolio.
