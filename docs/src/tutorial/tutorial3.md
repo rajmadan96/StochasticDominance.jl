@@ -54,7 +54,7 @@ Simplex Constraints residuals: 4.0992834682285206e-7
 Stochastic Dominance Constraints residuals: 0.0
 julia> println("Optimal asset allocation x: ",x_opt)
 Optimal asset allocation x:[0.002684844820915079, 0.997314745250738]
-julia> println("Optimal Objective: expected_portfolio_return(x_opt,ξ,p_ξ)", )
+julia> println("Optimal Objective:",expected_portfolio_return(x_opt,ξ,p_ξ))
 Optimal Objective: 0.03895702649565983
 ```
 In general, the output provides the optimal asset allocation vector $x$ of length $ d $ and a single optimal $t$ that confirms the stochastic dominance of the given order. For more technical details on reducing the verification of infinitely many $t$ (i.e., $t \in \mathbb{R}$) to a single value, refer to [Lakshmanan et al. 2025](https://arxiv.org/abs/2501.14565). 
