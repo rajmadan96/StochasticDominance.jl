@@ -23,13 +23,19 @@ bibliography: "paper.bib"
 
 # Summary
 
-Stochastic dominance plays a key role in decision-making under uncertainty and quantitative finance. This concept helps to evaluate whether one investment, policy, or strategy is better than others in uncertain conditions. It provides a mathematically rigorous method often used in optimization to maximize returns or minimize risk. See [@Ogryczak:2002], [@Dentcheva:2003], [@Kuosmanen:2004], [@Kopa:2017], [@Kopa:2023], [@Maggioni:2016], [@Maggioni:2019], and [@Consigli:2023] for an extensive body of research on the applicability of stochastic dominance.
+Stochastic dominance plays a key role in decision-making under uncertainty and quantitative finance. It helps evaluate whether one investment, policy, or strategy is better than others in uncertain conditions. It provides a mathematically rigorous method often used in optimization to maximize returns or minimize risk. See [@Ogryczak:2002], [@Dentcheva:2003], [@Kuosmanen:2004], [@Kopa:2017], [@Kopa:2023], [@Maggioni:2016], [@Maggioni:2019], and [@Consigli:2023] for an extensive body of research on the applicability of stochastic dominance.
 
-Despite being a crucial tool, (higher-order) stochastic dominance involves infinitely many constraints, making it *computationally intractable* in practice. Our recent research [@Lakshmanan:2025] addresses this challenge by theoretically reducing the infinite constraints to a finite number. However, no concrete, user-friendly implementation of (higher-order) stochastic dominance has been developed. Additionally, the existing prominent theoretical algorithms only discuss stochastic orders *two* and *three*, but not higher orders. Moreover, both, the discussion and implementation of non-integer orders, are absent.
+# Statement of need
+
+Despite being a crucial tool, (higher-order) stochastic dominance involves infinitely many constraints, making it *computationally intractable* in practice. Our recent research [@Lakshmanan:2025] addresses this challenge by theoretically reducing the infinite constraints to a finite number. However, no concrete, user-friendly implementation of (higher-order) stochastic dominance has been developed. Additionally, the existing prominent theoretical algorithms only discuss stochastic orders *two* and *three*, but not higher orders. Moreover, both, the discussion and implementation of non-integer orders, are absent. 
+
+To address this gap, we present *StochasticDominance.jl*, an open-source Julia package tailored for verification and optimization under higher-order stochastic dominance constraints.  
+
+
 
 # Main features of the package
 
-**Technical highlights.** The StochasticDominance.jl package offers robust functions for verifying higher-order stochastic dominance constraints between two random variables. It supports two primary objective functions by maximizing expected returns and minimizing higher-order risk measures to achieve the optimal asset allocation while satisfying higher-order stochastic dominance constraints. The package's optimization framework is built around Newton’s method, which efficiently handles the non-linear constraints. To enhance efficiency, we first employ Particle Swarm Optimization (PSO), which approximates the solution over a set number of iterations. In our previous work, [@Lakshmanan:2025] initially impose two fixed higher-order stochastic dominance constraints and dynamically introduce additional constraints to ensure dominance. To simplify the process and align with a black-box approach, this package fixes these constraints with additional theoretical backing, eliminating the need for dynamic adjustments. Below, we provide a concise overview of its key functions.
+**Technical highlights.** The StochasticDominance.jl package offers robust functions for verifying higher-order stochastic dominance constraints between two random variables. It supports two primary objective functions by maximizing expected returns and minimizing higher-order risk measures to achieve the optimal asset allocation while satisfying higher-order stochastic dominance constraints. The package's optimization framework is built around Newton’s method, which efficiently handles the non-linear constraints. To enhance efficiency, we first employ Particle Swarm Optimization (PSO), which approximates the solution over a set number of iterations. In our previous work, [@Lakshmanan:2025] initially impose two fixed higher-order stochastic dominance constraints and dynamically introduce additional constraints to ensure dominance. To simplify the process and align with a black-box approach, this package uses these constraints with additional theoretical backing, eliminating the need for dynamic adjustments. Below, we provide a concise overview of its key functions.
 
 1.  `verify_dominance`: This function checks whether the given benchmark asset, represented as the random variable $X$, and the weighted portfolio asset, represented as the random variable $Y$, exhibit a dominance relationship for the specified stochastic order.
 
@@ -58,7 +64,7 @@ This function checks whether $Y$ stochastically dominates $X$ of order `SDorder`
 
 ## Optimization: maximize expected return
 
-Next, we demonstrate how to find the optimal allocation that maximizes the expected return of the portfolios of interest while satisfying stochastic dominance of a given order. See [tutorials](https://rajmadan96.github.io/StochasticDominance.jl/dev/tutorial/tutorial3/) for comprehensive technical explanation.
+Next, we demonstrate how to find the optimal allocation that maximizes the expected return of the portfolios of interest while satisfying stochastic dominance of a given order. See [tutorials](https://rajmadan96.github.io/StochasticDominance.jl/dev/tutorial/tutorial3/) for a comprehensive technical explanation.
 
 The `data.csv` file is located in the `/test` folder of the code repository.
 ```julia
@@ -107,7 +113,7 @@ julia> x_opt, q_opt, t_opt = optimize_min_riskreturn_SD(
            plot=true,
        )
 ```
-From `q_opt`, we derive the optimal parameter that satisfies the risk measure for the given portfolio. It is important to note that the objective itself is an optimization problem. However, our algorithm is designed to compute both simultaneously in a single execution. Additionally, the algorithm supports non-integer stochastic dominance orders. This feature is not restricted to this single setup but is available across all functions.
+From `q_opt`, we derive the value of optimal parameter that satisfies the risk measure for the given portfolio. It is important to note that the objective itself is an optimization problem. However, our algorithm is designed to compute both simultaneously in a single execution. Additionally, the algorithm supports non-integer stochastic dominance orders. This feature is not restricted to this single setup but is available across all functions.
 
 ![Optimal asset allocation (SD order 4.7). The pie chart illustrates the distribution of assets in the optimized portfolio. The optimal coherent risk-return balance results in a portfolio return of 0.97\%, compared to a benchmark return of 1.167\%.](SDorder4-7RiskAssetsAllocation.svg)
 
