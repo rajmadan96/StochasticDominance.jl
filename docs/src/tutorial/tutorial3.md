@@ -30,7 +30,7 @@ Here, $\xi_0 \in \mathbb{R}^{n}$ represents the return of a benchmark portfolio,
 
 In the first example, we illustrate the function `optimize_max_return_SD` using representative data.
 
-```julia
+```julia-repl
 # Define portfolio return scenarios (rows: assets, columns: scenarios)
 julia> ξ = [0.02  0.05 -0.01;  # Asset 1 returns under different scenarios
      0.03  0.06  0.02]   # Asset 2 returns under different scenarios
@@ -49,13 +49,13 @@ julia> x_opt, t_opt = optimize_max_return_SD(ξ, ξ_0,SDorder;p_ξ, p_ξ_0,ε=1e
 ```
 ### Output
 
-```julia
-"Simplex Constraints residuals: 4.0992834682285206e-7
-Stochastic Dominance Constraints residuals: 0.0"
+```julia-repl
+Simplex Constraints residuals: 4.0992834682285206e-7
+Stochastic Dominance Constraints residuals: 0.0
 julia> println("Optimal asset allocation x: ",x_opt)
-"Optimal asset allocation x:[0.002684844820915079, 0.997314745250738]"
+Optimal asset allocation x:[0.002684844820915079, 0.997314745250738]
 julia> println("Optimal Objective: expected_portfolio_return(x_opt,ξ,p_ξ)", )
-"Optimal Objective: 0.03895702649565983"
+Optimal Objective: 0.03895702649565983
 ```
 In general, the output provides the optimal asset allocation vector $x$ of length $ d $ and a single optimal $t$ that confirms the stochastic dominance of the given order. For more technical details on reducing the verification of infinitely many $t$ (i.e., $t \in \mathbb{R}$) to a single value, refer to [Lakshmanan et al. 2025](https://arxiv.org/abs/2501.14565). 
 
