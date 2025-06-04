@@ -45,7 +45,7 @@ Here, $\xi_0 \in \mathbb{R}^{n}$ represents the return of a benchmark portfolio,
 
 In the first example, we illustrate the function `optimize_min_riskreturn_SD` using representative data.
 
-```julia
+```julia-repl
 # Define portfolio return scenarios (rows: assets, columns: scenarios)
 julia> ξ = [0.02  0.05 -0.01;  # Asset 1 returns under different scenarios
      0.03  0.06  0.02]   # Asset 2 returns under different scenarios
@@ -68,15 +68,15 @@ julia> x_opt, q_opt,t_opt = optimize_min_riskreturn_SD(ξ, ξ_0,SDorder;p_ξ, p_
 ```
 ### Output
 
-```julia
-"Simplex Constraints residuals: 5.903068123425115e-6
+```julia-repl
+Simplex Constraints residuals: 5.903068123425115e-6
 Stochastic Dominance Constraints residuals: 0.0"
 julia> println("Optimal asset allocation x: ",x_opt)
-"Optimal asset allocation x: [0.004074767447193794, 0.9959311356209297]"
+Optimal asset allocation x: [0.004074767447193794, 0.9959311356209297]
 julia> println("Optimal q: ",q_opt) 
-"Optimal q: -0.019892461315708196"
+Optimal q: -0.019892461315708196
 julia> println("Optimal Objective: ", RiskFunction(x_opt, q_opt, ξ, SDorder-1, p_ξ, β))
-"Optimal Objective: -0.019876482848988134"
+Optimal Objective: -0.019876482848988134
 ```
 In general, the output provides the optimal asset allocation vector $x$ of length $d$, the optimal $q$ for a higher-order risk measure, and a single optimal $t$ that confirms the stochastic dominance of the given order. For more technical details on reducing the verification of infinitely many $t$ (i.e., $t \in \mathbb{R}$) to a single value, refer to [Lakshmanan et al. 2025](https://arxiv.org/abs/2501.14565).
 
@@ -84,7 +84,7 @@ In general, the output provides the optimal asset allocation vector $x$ of lengt
 
 For this example, we consider the standardized dataset from [Fama and French 2023](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html). 
 
-```julia
+```julia-repl
 julia> using DataFrames
 julia> using Dates
 julia> data = DataFrame(
@@ -106,7 +106,7 @@ julia> r = 2.0 # norm parameter
 ```
 ### Run the function `optimize_min_riskreturn_SD`
 
-```julia
+```julia-repl
 julia> SDorder = 4.0 # Stochastic order
 julia> x_opt, q_opt, t_opt = optimize_min_riskreturn_SD(ξ, ξ_0,SDorder;p_ξ, p_ξ_0,β,r,plot=true) # Run the optimization
 ```
@@ -115,7 +115,7 @@ julia> x_opt, q_opt, t_opt = optimize_min_riskreturn_SD(ξ, ξ_0,SDorder;p_ξ, p
 
 ### Non-integer SD orders
 
-```julia
+```julia-repl
 julia> SDorder = 4.7 
 julia> x_opt, q_opt, t_opt = optimize_min_riskreturn_SD(ξ, ξ_0,SDorder;p_ξ, p_ξ_0,β,r,plot=true,max_ipot=100)# Run the optimization
 ```
