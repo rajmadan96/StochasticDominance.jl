@@ -75,7 +75,7 @@ julia> println("Optimal asset allocation x: ",x_opt)
 Optimal asset allocation x: [0.004074767447193794, 0.9959311356209297]
 julia> println("Optimal q: ",q_opt) 
 Optimal q: -0.019892461315708196
-julia> println("Optimal Objective: ", RiskFunction(x_opt, q_opt, ξ, SDorder-1, p_ξ, β))
+julia> println("Optimal Objective: ", riskfunction_asset_allocation(x_opt, q_opt, ξ, r, p_ξ, β))
 Optimal Objective: -0.019876482848988134
 ```
 In general, the output provides the optimal asset allocation vector $x$ of length $d$, the optimal $q$ for a higher-order risk measure, and a single optimal $t$ that confirms the stochastic dominance of the given order. For more technical details on reducing the verification of infinitely many $t$ (i.e., $t \in \mathbb{R}$) to a single value, refer to [Lakshmanan et al. 2025](https://arxiv.org/abs/2501.14565).
