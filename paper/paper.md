@@ -47,7 +47,7 @@ Further implementation details and various examples are available in the package
 # Example: verification and portfolio optimization
 
 The first example demonstrates how to use the `verify_dominance` function to check stochastic dominance of a specified order.
-```julia
+```julia-repl
 julia> using StochasticDominance            # Load the package
 julia> Y = [3, 5, 7, 9, 11]                 # Random variable Y
 julia> p_Y = [0.15, 0.25, 0.30, 0.20, 0.10] # Probabilities associated with Y
