@@ -55,10 +55,11 @@ julia> X = [2, 4, 6, 8, 10]                 # Random variable X
 julia> p_X = [0.10, 0.30, 0.30, 0.20, 0.10] # Probabilities associated with X
 ```
 Next, define the stochastic order and execute the function as shown below
-```julia
+```julia-repl
 julia> SDorder = 2
 julia> verify_dominance(Y, X, SDorder; p_Y, p_X)
 Y dominates X in stochastic order 2
+true
 ```
 This function checks whether $Y$ stochastically dominates $X$ of order `SDorder`.
 
@@ -67,21 +68,21 @@ This function checks whether $Y$ stochastically dominates $X$ of order `SDorder`
 Next, we demonstrate how to find the optimal allocation that maximizes the expected return of the portfolios of interest while satisfying stochastic dominance of a given order. See [tutorials](https://rajmadan96.github.io/StochasticDominance.jl/dev/tutorial/tutorial3/) for a comprehensive technical explanation.
 
 The `data.csv` file is located in the `/test` folder of the code repository.
-```julia
+```julia-repl
 julia> using CSV, Dates, DataFrames
 julia> data = CSV.read("data.csv", DataFrame)
-julia> xi =  Matrix(select(data, Not(:Date)))'
+julia> ξ =  Matrix(select(data, Not(:Date)))'
 julia> d, n = size(xi)                  # (d=5 assets and n=22 scenarios)
-julia> tau = fill(1 / d, d)             # Equal weights
-julia> xi_0 = vec(tau' * xi)            # Define Benchmark
+julia> τ = fill(1 / d, d)             # Equal weights
+julia> ξ_0 = vec(τ' * xi)            # Define Benchmark
 ```
 
 Use the following function to compute the optimal allocation (objective: maximize expected return):
-```julia
+```julia-repl
 julia> SDorder = 4;
 julia> x_opt, t_opt = optimize_max_return_SD(
-           xi,
-           xi_0,
+           ξ,
+           ξ_0,
            SDorder;
            p_ξ = fill(1 / n, n),    # Uniform probability
            p_ξ_0 = fill(1 / n, n),  # Uniform probability
@@ -100,11 +101,11 @@ Next, we demonstrate how to determine the optimal allocation that minimizes high
 
 Use the following function to compute the optimal allocation (objective: minimizing higher-order risk measure):
 
-```julia
+```julia-repl
 julia> SDorder = 4.7;
 julia> x_opt, q_opt, t_opt = optimize_min_riskreturn_SD(
-           xi,
-           xi_0,
+           ξ,
+           ξ_0,
            SDorder;
            p_ξ = fill(1 / n, n),    # Uniform probability
            p_ξ_0 = fill(1 / n, n),  # Uniform probability
