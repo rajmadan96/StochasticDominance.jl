@@ -23,7 +23,7 @@ bibliography: "paper.bib"
 
 # Summary
 
-Stochastic dominance plays a key role in decision-making under uncertainty and quantitative finance. It helps evaluate whether one investment, policy, or strategy is better than others in uncertain conditions. It provides a mathematically rigorous method often used in optimization to maximize returns or minimize risk. See [@Ogryczak:2002], [@Dentcheva:2003], [@Kuosmanen:2004], [@Kopa:2017], [@Kopa:2023], [@Maggioni:2016], [@Maggioni:2019], and [@Consigli:2023] for an extensive body of research on the applicability of stochastic dominance.
+Stochastic dominance plays a key role in decision-making under uncertainty and quantitative finance. It helps evaluate whether one investment, policy, or strategy is better than others in uncertain conditions. It provides a mathematically rigorous method often used in optimization to maximize returns or minimize risk. See [@Ogryczak:2002], [@Dentcheva:2003], [@Kuosmanen:2004], [@Kopa:2017], [@Kopa:2023], [@Maggioni:2016], [@Maggioni:2019], [@Consigli:2023], and [@Pichler:2024] for an extensive body of research on the applicability of stochastic dominance.
 
 # Statement of need
 
