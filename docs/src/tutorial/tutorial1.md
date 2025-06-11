@@ -57,9 +57,13 @@ Find $x > 0$ such that:
 ### Practical Use:
 This approach is especially useful in **portfolio optimization** where a benchmark (e.g., market index) is fixed, and the investor seeks to optimally scale their portfolio to satisfy risk-return tradeoffs under rigorous dominance conditions.
 
-
-
-
- 
 This package provides tools to analyze stochastic dominance, enabling users to apply these concepts effectively in decision-making and financial optimization.
+
+# References
+
+```@bibliography
+*
+```
+
+
 
