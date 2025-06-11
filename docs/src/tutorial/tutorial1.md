@@ -11,7 +11,7 @@ By utilizing cumulative distribution functions, stochastic dominance allows deci
 
 ## Stochastic Dominance of Order $p$
 
-Let $p \in [1,\infty)$ and let $X, Y \in L^p$ be random variables. We say that $X$ is dominated by $Y$ in the $p$ th stochastic order, denoted as
+Let $p \in [1,\infty)$ and let $X, Y \in L^p$ be random variables. We say that $X$ is dominated by $Y$ in the stochastic order of $p$, denoted as
 
 ```math
 X \preccurlyeq^{(p)} Y
