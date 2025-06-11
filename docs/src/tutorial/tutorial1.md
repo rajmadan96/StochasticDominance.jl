@@ -51,15 +51,18 @@ Find $x > 0$ such that:
    ```
 
 ### Interpretation:
-- The condition $\xi_0 \preccurlyeq^{(p)} x^{\top}\xi$ ensures that for all thresholds $t$, the **$p^{\text{th}}$  partial moment** of $\xi_0$ is at least that of the scaled portfolio $x^{\top}\xi $.
+- The condition $\xi_0 \preccurlyeq^{(p)} x^{\top}\xi$ ensures that for all thresholds $t$, the **$p^{\text{th}}$  partial moment** of $\xi_0$ is at least that of the scaled portfolio $x^{\top}\xi$.
 - This allows the investor to **scale the portfolio** to either increase returns or reduce risk while maintaining or improving the performance relative to the benchmark under **higher-order stochastic dominance**.
 
 ### Practical Use:
 This approach is especially useful in **portfolio optimization** where a benchmark (e.g., market index) is fixed, and the investor seeks to optimally scale their portfolio to satisfy risk-return tradeoffs under rigorous dominance conditions.
 
-This package provides tools to analyze stochastic dominance, enabling users to apply these concepts effectively in decision-making and financial optimization.
+This package provides tools to analyze stochastic dominance, enabling users to apply these concepts effectively in decision-making and financial optimization. The mathematical background of this package was discussed in [Lakshmanan:2025](@citet).
 
 # References
+
+```@bibliography
+```
 
 ```@bibliography
 *
