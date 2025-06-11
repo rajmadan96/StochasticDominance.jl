@@ -49,7 +49,7 @@ Find \( x > 0 \) such that:
    ```
 
 ### Interpretation:
-- The condition $\xi_0 \preccurlyeq^{(p)} x^{\top}\xi$ ensures that for all thresholds $t$, the **\( (p) \)th lower partial moment** of $ \xi_0$ is at least that of the scaled portfolio $ x^{\top}\xi $.
+- The condition $\xi_0 \preccurlyeq^{(p)} x^{\top}\xi$ ensures that for all thresholds $t$, the **$p^{\text{th}}$  partial moment** of $ \xi_0$ is at least that of the scaled portfolio $ x^{\top}\xi $.
 - This allows the investor to **scale the portfolio** to either increase returns or reduce risk while maintaining or improving the performance relative to the benchmark under **higher-order stochastic dominance**.
 
 ### Practical Use:
