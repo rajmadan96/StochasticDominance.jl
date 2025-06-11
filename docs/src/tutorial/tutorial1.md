@@ -25,6 +25,8 @@ if the condition holds
 This definition provides a precise way to compare random variables under higher order stochastic dominance criteria.
 From a portfolio optimization perspective, the feasible random variable $Y$ in the above formulation dominates benchmark variables $X$. 
 
+For other equivalent formulations and technical details, we refer to [Dentcheva and Ruszczyński (2024)](https://doi.org/10.1007/s10589-015-9758-0).
+
 ## Optimal Portfolio Scaling under Stochastic Dominance of Order $p$
 
 Given a **fixed benchmark** random variable $\xi_0 \in L^p$ and a **portfolio return** random variable $\xi \in L^p$, we aim to determine an **optimal scaling factor** $x > 0$ such that the scaled portfolio $x^{\top}\xi$ dominates $\xi_0$ under stochastic dominance of order of $p$.
@@ -56,7 +58,7 @@ Find $x > 0$ such that:
 This approach is especially useful in **portfolio optimization** where a benchmark (e.g., market index) is fixed, and the investor seeks to optimally scale their portfolio to satisfy risk-return tradeoffs under rigorous dominance conditions.
 
 
-For other equivalent formulations and technical details, we refer to [Dentcheva and Ruszczyński (2024)](https://doi.org/10.1007/s10589-015-9758-0).
+
 
  
 This package provides tools to analyze stochastic dominance, enabling users to apply these concepts effectively in decision-making and financial optimization.
