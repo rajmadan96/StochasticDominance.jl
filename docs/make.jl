@@ -1,5 +1,12 @@
 using StochasticDominance
 using Documenter
+using DocumenterCitations
+
+
+bib = CitationBibliography(
+    joinpath(@__DIR__, "src", "refs.bib");
+    style=:numeric
+)
 
 makedocs(
 	sitename =  "StochasticDominance.jl",
@@ -14,7 +21,8 @@ makedocs(
 					"tutorial/tutorial4.md",
 				    ],
 		"API Reference" => "api.md"
-		]
+		],
+	plugins=[bib],
 )
 
 deploydocs(
