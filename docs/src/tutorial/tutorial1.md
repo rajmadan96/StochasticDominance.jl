@@ -27,7 +27,7 @@ From a portfolio optimization perspective, the feasible random variable $Y$ in t
 
 ## Optimal Portfolio Scaling under Stochastic Dominance of Order $p$
 
-Given a **fixed benchmark** random variable $\xi_0 \in L^p$ and a **portfolio return** random variable $\xi \in L^p$, we aim to determine an **optimal scaling factor** $x > 0$ such that the scaled portfolio $x^{\top}\xi$ dominates $ \xi_0 $ under stochastic dominance of order.
+Given a **fixed benchmark** random variable $\xi_0 \in L^p$ and a **portfolio return** random variable $\xi \in L^p$, we aim to determine an **optimal scaling factor** $x > 0$ such that the scaled portfolio $x^{\top}\xi$ dominates $\xi_0$ under stochastic dominance of order of $p$.
 
 ### Goal:
 Find $x > 0$ such that:
@@ -49,7 +49,7 @@ Find $x > 0$ such that:
    ```
 
 ### Interpretation:
-- The condition $\xi_0 \preccurlyeq^{(p)} x^{\top}\xi$ ensures that for all thresholds $t$, the **$p^{\text{th}}$  partial moment** of $ \xi_0$ is at least that of the scaled portfolio $ x^{\top}\xi $.
+- The condition $\xi_0 \preccurlyeq^{(p)} x^{\top}\xi$ ensures that for all thresholds $t$, the **$p^{\text{th}}$  partial moment** of $\xi_0$ is at least that of the scaled portfolio $x^{\top}\xi $.
 - This allows the investor to **scale the portfolio** to either increase returns or reduce risk while maintaining or improving the performance relative to the benchmark under **higher-order stochastic dominance**.
 
 ### Practical Use:
