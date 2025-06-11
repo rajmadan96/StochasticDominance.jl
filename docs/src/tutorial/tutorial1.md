@@ -25,7 +25,7 @@ if the condition holds
 This definition provides a precise way to compare random variables under higher order stochastic dominance criteria.
 From a portfolio optimization perspective, the feasible random variable $Y$ in the above formulation dominates benchmark variables $X$. 
 
-For other equivalent formulations and technical details, we refer to [Dentcheva and Ruszczyński (2024)](https://doi.org/10.1007/s10589-015-9758-0).
+For other equivalent formulations and technical details, we refer to [Dentcheva2024](@citet).
 
 ## Optimal Portfolio Scaling under Stochastic Dominance of Order $p$
 
