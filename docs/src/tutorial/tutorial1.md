@@ -62,9 +62,6 @@ This package provides tools to analyze stochastic dominance, enabling users to a
 # References
 
 ```@bibliography
-```
-
-```@bibliography
 *
 ```
 
