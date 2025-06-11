@@ -25,31 +25,31 @@ if the condition holds
 This definition provides a precise way to compare random variables under higher order stochastic dominance criteria.
 From a portfolio optimization perspective, the feasible random variable $Y$ in the above formulation dominates benchmark variables $X$. 
 
-## Optimal Portfolio Scaling under Stochastic Dominance of Order \( p \)
+## Optimal Portfolio Scaling under Stochastic Dominance of Order $p$
 
-Given a **fixed benchmark** random variable \( X \in L^p \) and a **portfolio return** random variable \( Y \in L^p \), we aim to determine an **optimal scaling factor** \( \lambda > 0 \) such that the scaled portfolio \( \lambda Y \) dominates \( X \) under **stochastic dominance of order \( p \)**.
+Given a **fixed benchmark** random variable $ \xi_0 \in L^p$ and a **portfolio return** random variable \( \xi \in L^p \), we aim to determine an **optimal scaling factor** $x > 0$ such that the scaled portfolio $x^{\top}\xi$ dominates $ \xi_0 $ under **stochastic dominance of order \( p \)**.
 
 ### Goal:
-Find \( \lambda > 0 \) such that:
+Find \( x > 0 \) such that:
 
-\[
-X \preccurlyeq^{(p)} \lambda Y \quad \text{or} \quad \mathbb{E}(t - X)_+^{p-1} \geq \mathbb{E}(t - \lambda Y)_+^{p-1}, \quad \forall t \in \mathbb{R}.
-\]
+```math
+\xi_0 \preccurlyeq^{(p)} x^{\top}\xi \quad \text{or} \quad \mathbb{E}(t - \xi_0)_+^{p-1} \geq \mathbb{E}(t - x^{\top}\xi )_+^{p-1}, \quad \forall t \in \mathbb{R}.
+```
 
 ### Optimization Variants:
 
 1. **Maximize Expected Return under Dominance Constraint**:
-   \[
-   \max_{\lambda > 0} \mathbb{E}[\lambda Y] \quad \text{subject to} \quad X \preccurlyeq^{(p)} \lambda Y.
-   \]
+   ```math
+   \max_{x > 0} \mathbb{E} x^{\top}\xi \quad \text{subject to} \quad \xi_0 \preccurlyeq^{(p)} x^{\top}\xi.
+   ```
 
 2. **Minimize Risk (e.g., Variance) under Dominance Constraint**:
-   \[
-   \min_{\lambda > 0} \text{Var}[\lambda Y] \quad \text{subject to} \quad X \preccurlyeq^{(p)} \lambda Y.
-   \]
+   ```math
+   \min_{x > 0} \text{Var}(x^{\top}\xi) \quad \text{subject to} \quad \xi_0 \preccurlyeq^{(p)} x^{\top}\xi.
+   ```
 
 ### Interpretation:
-- The condition \( X \preccurlyeq^{(p)} \lambda Y \) ensures that for all thresholds \( t \), the **\( (p-1) \)th lower partial moment** of \( X \) is at least that of the scaled portfolio \( \lambda Y \).
+- The condition $\xi_0 \preccurlyeq^{(p)} x^{\top}\xi$ ensures that for all thresholds $t$, the **\( (p) \)th lower partial moment** of $ \xi_0$ is at least that of the scaled portfolio $ x^{\top}\xi $.
 - This allows the investor to **scale the portfolio** to either increase returns or reduce risk while maintaining or improving the performance relative to the benchmark under **higher-order stochastic dominance**.
 
 ### Practical Use:
