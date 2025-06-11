@@ -29,7 +29,7 @@ For other equivalent formulations and technical details, we refer to [Dentcheva2
 
 ## Optimal Portfolio Scaling under Stochastic Dominance of Order $p$
 
-Given a **fixed benchmark** random vector $\xi_0 \in \mathbb{R}^{n}$ and a **portfolio return** random vector(s) ($d$ vectors) $\xi \in \mathbb{R}^{d \times n}$, we aim to determine an **optimal scaling factor** $x > 0$ such that the scaled portfolio $x^{\top}\xi$ dominates $\xi_0$ under stochastic dominance of order of $p$. Here, we have $d$ assets and $n$ scenarios.
+Given a **fixed benchmark** random vector $\xi_0 \in \mathbb{R}^{n}$ and a **portfolio return** random vector(s) ($d$ vectors) $\xi \in \mathbb{R}^{d \times n}$, we aim to determine an **optimal scaling factor** $x > 0$ ($n$ dimensional simplex vecto) such that the scaled portfolio $x^{\top}\xi$ dominates $\xi_0$ under stochastic dominance of order of $p$. Here, we have $d$ assets and $n$ scenarios.
 
 ### Goal:
 Find $x > 0$ such that:
