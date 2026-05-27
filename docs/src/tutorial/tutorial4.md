@@ -38,7 +38,7 @@ The optimization problem can be rewritten as:
 \end{aligned}
 ```
 
-Here, $\xi_0 \in \mathbb{R}^{n}$ represents the return of a benchmark portfolio, while $\xi \in \mathbb{R}^{d \times n}$ denotes the asset returns. The formulation considers $d$ assets and $n$ scenarios. 
+Here, $\xi_0 \in \mathbb{R}$ represents the return of a benchmark portfolio, while $\xi \in \mathbb{R}^{d}$ denotes the asset returns. The formulation considers $d$ assets and $n$ scenarios. 
 
 
 ## Example 1 
